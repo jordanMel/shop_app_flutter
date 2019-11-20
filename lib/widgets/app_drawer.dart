@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import '../screens/order_screen.dart';
+
+class AppDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 120,
+            width: double.infinity,
+            alignment: Alignment.center,
+            color: Theme.of(context).primaryColor,
+            child: Text(
+              'Shop App',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryTextTheme.title.color,
+              ),
+            ),
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('Shop'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/');
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.payment),
+            title: Text('Orders'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, OrderScreen.routeName);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
